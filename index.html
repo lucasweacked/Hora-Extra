@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Hora Extra</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="calculador">
+            <h1>Calculador de Hora Extra</h1>
+            <label for="sal">Salário Mensal (R$):</label>
+            <input type="number" id="sal" placeholder="Digite o seu salário" required>
+            <br>
+            <label for="ht">Horas Trabalhadas no Mês:</label>
+            <input type="number" id="ht" placeholder="Digite a quantidade de horas trabalhadas" required>
+            <br>
+            <label for="horasNormais">Horas Normais no Mês:</label>
+            <input type="number" id="horasNormais" placeholder="Digite o número de horas normais" required>
+            <br>
+            <button onclick="calcularHoraExtra()">Calcular</button>
+            <div class="result" id="resultado"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="redes-sociais">
+            <a href="https://www.linkedin.com/in/lucasbarrossimon/" target="_blank">
+                <img src="assets/imgs/linkedin_logo.png" alt="Logo do LinkedIn">
+            </a>
+            <a href="https://github.com/lucasweacked" target="_blank">
+                <img src="assets/imgs/github_logo.png" alt="Logo do GitHub">
+            </a>
+            <a href="https://www.instagram.com/21lucasbarros/" target="_blank">
+                <img src="assets/imgs/instagram_logo.png" alt="Logo do Instagram">
+            </a>
+        </div>
+        <p>&copy; 2024 Lucas Barros Simon. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function calcularHoraExtra() {
+            var salario = parseFloat(document.getElementById('sal').value);
+            var horasTrabalhadas = parseFloat(document.getElementById('ht').value);
+            var horasNormais = parseFloat(document.getElementById('horasNormais').value);
+            
+            if (isNaN(salario) || isNaN(horasTrabalhadas) || isNaN(horasNormais)) {
+                document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos corretamente.';
+                return;
+            }
+
+            var valorHora = salario / horasNormais;
+            var horasExtras = horasTrabalhadas - horasNormais;
+
+            if (horasExtras > 0) {
+                var valorHoraExtra = valorHora * 1.5; // 50% a mais para horas extras
+                var totalHoraExtra = horasExtras * valorHoraExtra;
+                document.getElementById('resultado').innerText = 'Valor total de hora extra: R$ ' + totalHoraExtra.toFixed(2);
+            } else {
+                document.getElementById('resultado').innerText = 'Não há horas extras.';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.calculador {
+    background: #0052cc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+}
+
+.calculador label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.calculador input {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #257428;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.redes-sociais {
+    margin-bottom: 10px;
+}
+
+.redes-sociais a {
+    margin: 0 8px;
+    display: inline-block;
+}
+
+.redes-sociais img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.redes-sociais a:hover img {
+    transform: scale(1.1);
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #555;
+}
