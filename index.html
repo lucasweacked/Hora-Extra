@@ -21,6 +21,9 @@
             <label for="horasNormais">Horas Normais no Mês:</label>
             <input type="number" id="horasNormais" placeholder="Digite o número de horas normais" required>
             <br>
+            <label for="atraso">Horas de Atraso:</label>
+            <input type="number" id="atraso" placeholder="Digite as horas de atraso" required>
+            <br>
             <button onclick="calcularHoraExtra()">Calcular</button>
             <div class="result" id="resultado"></div>
         </div>
@@ -46,17 +49,19 @@
             var salario = parseFloat(document.getElementById('sal').value);
             var horasTrabalhadas = parseFloat(document.getElementById('ht').value);
             var horasNormais = parseFloat(document.getElementById('horasNormais').value);
+            var horasAtraso = parseFloat(document.getElementById('atraso').value);
             
-            if (isNaN(salario) || isNaN(horasTrabalhadas) || isNaN(horasNormais)) {
+            if (isNaN(salario) || isNaN(horasTrabalhadas) || isNaN(horasNormais) || isNaN(horasAtraso)) {
                 document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos corretamente.';
                 return;
             }
 
             var valorHora = salario / horasNormais;
-            var horasExtras = horasTrabalhadas - horasNormais;
+            var horasTrabalhadasAjustadas = horasTrabalhadas - horasAtraso;
+            var horasExtras = horasTrabalhadasAjustadas - horasNormais;
 
             if (horasExtras > 0) {
-                var valorHoraExtra = valorHora * 1.5; // 50% a mais para horas extras
+                var valorHoraExtra = valorHora * 1.5;
                 var totalHoraExtra = horasExtras * valorHoraExtra;
                 document.getElementById('resultado').innerText = 'Valor total de hora extra: R$ ' + totalHoraExtra.toFixed(2);
             } else {
